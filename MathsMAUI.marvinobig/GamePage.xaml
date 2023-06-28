@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathsMAUI.GamePage"
+             Padding="20"
+             BackgroundColor="#272727">
+
+    <VerticalStackLayout HorizontalOptions="Center"
+                         Spacing="40">
+        <Label 
+                Text="{Binding GameName}"
+                FontSize="60" 
+                TextColor="#29f3c3"
+                FontAttributes="Bold"
+                Margin="10,10,10,20"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+        <Label x:Name="Question"
+               Text="Question"
+               FontSize="40" 
+               TextColor="#fcfcfc"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center" />
+
+        <Entry x:Name="AnswerInput"
+               Placeholder="Enter your answer"
+               >
+        </Entry>
+
+        <Button Text="Submit"
+                TextColor="#272727"
+                BackgroundColor="#29f3c3"
+                FontSize="18"
+                Clicked="HandleAnswer"
+                Padding="20"/>
+    </VerticalStackLayout>
+</ContentPage>

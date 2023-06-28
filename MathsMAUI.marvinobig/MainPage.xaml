@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathsMAUI.MainPage"
+             Padding="20"
+             BackgroundColor="#272727">
+
+    <ContentView>
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand"
+                             Spacing="20">
+            <Label Text="Welcome to Maths: Basic Arithmetic" 
+                   FontSize="60" 
+                   TextColor="#29f3c3"
+                   FontAttributes="Bold"
+                   Margin="10,10,10,20"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Text="Available Maths Games" 
+                   FontSize="40" 
+                   TextColor="#fcfcfc"
+                   FontAttributes="Bold"
+                   Margin="10,10,10,20"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <Grid ColumnSpacing="20"
+                  RowSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Addition"
+                        TextColor="#272727"
+                        BackgroundColor="#29f3c3"
+                        FontSize="18"
+                        Clicked="Navigate"
+                        Padding="20"/>
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Text="Subtraction" 
+                        TextColor="#272727"
+                        BackgroundColor="#29f3c3"
+                        FontSize="18"
+                        Clicked="Navigate"
+                        Padding="20"/>
+                <Button Grid.Row="0"
+                        Grid.Column="2"
+                        Text="Multiplication" 
+                        TextColor="#272727"
+                        BackgroundColor="#29f3c3"
+                        FontSize="18"
+                        Clicked="Navigate"
+                        Padding="20"/>
+                <Button Grid.Row="0"
+                        Grid.Column="3"
+                        Text="Division" 
+                        TextColor="#272727"
+                        BackgroundColor="#29f3c3"
+                        FontSize="18"
+                        Clicked="Navigate"
+                        Padding="20"/>
+                <Button Grid.Row="1"
+                        Grid.ColumnSpan="4"
+                        Text="Game History" 
+                        TextColor="#272727"
+                        BackgroundColor="#29f3c3"
+                        FontSize="18"
+                        Clicked="Navigate"
+                        Padding="20"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ContentView>
+</ContentPage>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathsMAUI.GameHistory"
+             Padding="20"
+             BackgroundColor="#272727">
+    <ScrollView>
+        <VerticalStackLayout Spacing="40">
+            <Label 
+                Text="{Binding PageName}"
+                FontSize="60" 
+                TextColor="#29f3c3"
+                FontAttributes="Bold"
+                Margin="10,10,10,20"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"/>
+            <Grid BackgroundColor="#29f3c3"
+                  Padding="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0"
+                       Text="Math Type"
+                       FontAttributes="Bold"
+                       TextColor="#272727"/>
+
+                <Label Grid.Column="1"
+                       Text="Question"
+                       FontAttributes="Bold"
+                       TextColor="#272727"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Column="2"
+                       Text="Solution"
+                       FontAttributes="Bold"
+                       TextColor="#272727"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Column="3"
+                       Text="Your Answer"
+                       FontAttributes="Bold"
+                       TextColor="#272727"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Column="4"
+                       Text="Status"
+                       FontAttributes="Bold"
+                       TextColor="#272727"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Column="5"
+                       Text="Date Played"
+                       FontAttributes="Bold"
+                       TextColor="#272727"
+                       HorizontalTextAlignment="Center"/>
+            </Grid>
+
+            <CollectionView x:Name="history">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0"
+                                   Text="{Binding gameChoice}"
+                                   VerticalTextAlignment="Center"/>
+                            
+                            <Label Grid.Column="1"
+                                   Text="{Binding question}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            
+                            <Label Grid.Column="2"
+                                   Text="{Binding answer}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            
+                            <Label Grid.Column="3"
+                                   Text="{Binding userAnswer}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            
+                            <Label Grid.Column="4"
+                                   Text="{Binding wasAnswerRight}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+                            
+                            <Label Grid.Column="5"
+                                   Text="{Binding playedAt, StringFormat='{0:d}'}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"/>
+
+                            <Button Grid.Column="6"
+                                    Text="Delete"
+                                    BindingContext="{Binding id}"
+                                    Clicked="DeleteGameHistory"
+                                    HorizontalOptions="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
