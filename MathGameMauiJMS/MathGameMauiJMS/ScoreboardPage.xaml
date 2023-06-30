@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGameMauiJMS.ScoreboardPage"
+             BackgroundImageSource="bg.jpg">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="50, 100, 50, 50">
+            <Grid ColumnDefinitions="*, *, *, *, *, *"
+                  RowDefinitions="50">
+                <Label Grid.Column="0" Text="Date" FontSize="25"/>
+                <Label Grid.Column="1" Text="Type" FontSize="25"/>
+                <Label Grid.Column="2" Text="Score" FontSize="25"/>
+                <Label Grid.Column="3" Text="Difficulty" FontSize="25"/>
+                <Label Grid.Column="4" Text="TimePlayed" FontSize="25"/>
+            </Grid>
+            <CollectionView x:Name="gamesList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*, *, *, *, *, *"
+                              RowDefinitions="50">
+
+                            <Label Grid.Column="0" Text="{Binding DatePlayed, StringFormat='{0:d}'}" FontSize="32"/>
+                            <Label Grid.Column="1" Text="{Binding Type}" FontSize="32"/>
+                            <Label Grid.Column="2" Text="{Binding Score}" FontSize="32"/>
+                            <Label Grid.Column="3" Text="{Binding Difficulty}" FontSize="32"/>
+                            <Label Grid.Column="4" Text="{Binding TimePlayed, StringFormat='{0} seconds'}"
+                                   FontSize="32"/>
+                            <ImageButton   
+                               Source="tcc.jpg"
+                                Grid.Column="5"
+                                BindingContext="{Binding Id}"
+                                Clicked="OnDelete"
+                                MaximumWidthRequest="50"
+                                MinimumHeightRequest="50"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
