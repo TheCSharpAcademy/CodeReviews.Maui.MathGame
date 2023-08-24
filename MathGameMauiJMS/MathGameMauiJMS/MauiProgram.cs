@@ -1,4 +1,5 @@
 ﻿using MathGameMauiJMS.Data;
+using System.Reflection;
 
 namespace MathGameMauiJMS;
 
@@ -14,7 +15,10 @@ public static class MauiProgram
 				fonts.AddFont("Belanosima-Regular.ttf", "BelanosimaRegular");
 			});
 
-        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "game.db");
+        string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+        string assemblyDirectory = Path.GetDirectoryName(assemblyLocation);
+        string solutionFolderPath = Path.GetFullPath(Path.Combine(assemblyDirectory, "..\\..\\..\\.."));
+        string dbPath = Path.Combine(solutionFolderPath, @"\gameDB.db");
         builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<GameRepository>(s, dbPath));
         return builder.Build();
 	}
