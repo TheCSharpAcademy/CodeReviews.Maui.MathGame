@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMathGame.PreviousGames"
+             BackgroundImageSource="bg.jpg">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="200,100,100,100">
+            <Grid ColumnDefinitions="*,*,*,*,*"
+                  RowDefinitions="50">
+                    <Label Grid.Column="0" Text="Date" FontSize="32" TextColor="White"/>
+                    <Label Grid.Column="1" Text="Type" FontSize="32" TextColor="White"/>
+                    <Label Grid.Column="2" Text="Score" FontSize="32" TextColor="White"/>
+                    <Label Grid.Column="3" Text="Difficulty" FontSize="32" TextColor="White"/>
+            </Grid>
+            <CollectionView x:Name="gamesList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*,*,*,*"
+                         RowDefinitions="50">
+                            <Label Grid.Column="0" Text="{Binding DatePlayed, StringFormat='{0:d}'}" FontSize="32" TextColor="White" />
+                            <Label Grid.Column="1" Text="{Binding Type}" FontSize="32" TextColor="White"/>
+                            <Grid Grid.Column ="2" ColumnDefinitions="45,10,45">
+                                    <Label Grid.Column="0" Text="{Binding Score}" FontSize="32" TextColor="White" HorizontalTextAlignment="Center"/>
+                                    <Label Grid.Column="1" Text="/" FontSize="32" TextColor="White"/>
+                                    <Label Grid.Column="2" Text="{Binding TotalQuestions}" FontSize="32" TextColor="White" HorizontalTextAlignment="Center"/>
+                                </Grid>
+                                <Label Grid.Column="3" Text="{Binding Difficulty}" FontSize="32" TextColor="White"/>
+                            <ImageButton 
+                                Grid.Column="6"
+                                Source="trash_wh.png" 
+                                BackgroundColor="Transparent"
+                                Clicked="OnDelete" 
+                                BindingContext="{Binding Id}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

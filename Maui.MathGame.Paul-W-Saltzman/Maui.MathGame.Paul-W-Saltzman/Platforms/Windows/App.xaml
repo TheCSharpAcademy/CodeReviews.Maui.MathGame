@@ -1,0 +1,28 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="MauiMathGame.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:MauiMathGame.WinUI">
+
+    <maui:MauiWinUIApplication.Resources>
+
+        <!-- Only this line is required to solve the OP problem -->
+        <SolidColorBrush x:Key="ComboBoxItemForegroundPointerOver" Color="#2B7379" />
+
+        <!-- These may come in handy once you have solved the first problem -->
+        <SolidColorBrush x:Key="ComboBoxDropDownBackground" Color="#444444" />
+        <SolidColorBrush x:Key="ComboBoxItemForeground" Color="White" />
+        <SolidColorBrush x:Key="ComboBoxForegroundPointerOver" Color="White" />
+        <SolidColorBrush x:Key="ComboBoxItemForegroundSelected" Color="White" />
+        <SolidColorBrush x:Key="ComboBoxItemForegroundSelectedPointerOver" Color="#444444" />
+        <SolidColorBrush x:Key="ComboBoxItemForegroundPressed" Color="#2B7379" />
+        <SolidColorBrush x:Key="ComboBoxForegroundPressed" Color="White" />
+        <SolidColorBrush x:Key="ComboBoxItemForegroundSelectedPressed" Color="#2B7379" />
+        <SolidColorBrush x:Key="ComboBoxItemBackgroundSelected" Color="#777777" />
+        <SolidColorBrush x:Key="ComboBoxItemBackgroundSelectedPointerOver" Color="#777777" />
+        <SolidColorBrush x:Key="ComboBoxItemBackgroundSelectedPressed" Color="#777777" />
+
+    </maui:MauiWinUIApplication.Resources>
+
+</maui:MauiWinUIApplication>
