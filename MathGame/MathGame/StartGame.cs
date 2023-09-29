@@ -3,7 +3,6 @@ namespace MathGame;
 
 public class StartGame
 {
-    
     public static void Menu(){
     bool gameover = false;
 
