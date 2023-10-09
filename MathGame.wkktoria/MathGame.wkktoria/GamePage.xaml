@@ -11,7 +11,11 @@
                          HorizontalOptions="Center"
                          VerticalOptions="Center">
 
-        <VerticalStackLayout x:Name="QuestionArea">
+        <VerticalStackLayout x:Name="QuestionArea"
+                             Spacing="25"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
 
             <Label x:Name="QuestionLabel"
                    FontSize="40"
@@ -37,7 +41,6 @@
                    FontSize="20"
                    TextColor="Black"
                    HorizontalOptions="Center" />
-
         </VerticalStackLayout>
 
         <Label x:Name="GameOverLabel"
@@ -55,5 +58,4 @@
                 Clicked="OnBackToMenu" />
 
     </VerticalStackLayout>
-
 </ContentPage>

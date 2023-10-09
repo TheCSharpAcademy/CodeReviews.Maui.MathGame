@@ -6,16 +6,53 @@
              Title="PreviousGamesPage"
              BackgroundImageSource="background.jpg">
 
-    <VerticalStackLayout Spacing="25"
-                         Padding="50"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
 
-        <Label Text="Previous games"
-               FontSize="40"
-               TextColor="Black"
-               HorizontalOptions="Center" />
+            <CollectionView x:Name="GamesList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35" />
+                            </Grid.RowDefinitions>
 
-    </VerticalStackLayout>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
+                            <Label Grid.Column="0"
+                                   Text="{Binding DatePlayed}"
+                                   FontSize="30"
+                                   TextColor="Black" />
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding Type}"
+                                   FontSize="30"
+                                   TextColor="Black" />
+
+                            <Label Grid.Column="2"
+                                   Text="{Binding Score}"
+                                   FontSize="30"
+                                   TextColor="Black" />
+
+                            <Button Grid.Column="3"
+                                    Text="Delete"
+                                    FontSize="30"
+                                    TextColor="White"
+                                    BackgroundColor="Firebrick"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="OnDelete" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

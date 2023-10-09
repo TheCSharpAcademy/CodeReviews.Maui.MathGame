@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MathGame.wkktoria.Data;
+using Microsoft.Extensions.Logging;
 
 namespace MathGame.wkktoria;
 
@@ -14,6 +15,11 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+        var dbPath = Path.Combine(FileSystem.AppDataDirectory, "game.db");
+
+        builder.Services.AddSingleton(s =>
+            ActivatorUtilities.CreateInstance<GameRepository>(s, dbPath));
 
 #if DEBUG
         builder.Logging.AddDebug();

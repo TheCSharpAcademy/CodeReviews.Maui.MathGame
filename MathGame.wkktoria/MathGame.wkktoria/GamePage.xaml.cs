@@ -1,4 +1,6 @@
-﻿namespace MathGame.wkktoria;
+﻿using MathGame.wkktoria.Models;
+
+namespace MathGame.wkktoria;
 
 public partial class GamePage
 {
@@ -81,10 +83,26 @@ public partial class GamePage
 
     private void GameOver()
     {
+        var gameOperation = GameType switch
+        {
+            "Addition" => GameOperation.Addition,
+            "Subtraction" => GameOperation.Subtraction,
+            "Multiplication" => GameOperation.Multiplication,
+            "Division" => GameOperation.Division,
+            _ => GameOperation.Undefined
+        };
+
         QuestionArea.IsVisible = false;
         BackToMenuButton.IsVisible = true;
 
         GameOverLabel.Text = $"Game over! Your got {_score} out of {TotalQuestions} right!";
+
+        App.GameRepository.Add(new Game
+        {
+            Type = gameOperation,
+            Score = _score,
+            DatePlayed = DateTime.UtcNow
+        });
     }
 
     private void OnBackToMenu(object sender, EventArgs e)
