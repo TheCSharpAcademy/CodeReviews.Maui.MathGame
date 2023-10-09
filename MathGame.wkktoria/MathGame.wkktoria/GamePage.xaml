@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGame.wkktoria.GamePage"
+             Title="GamePage"
+             BackgroundImageSource="background.jpg">
+
+    <VerticalStackLayout Spacing="25"
+                         Padding="50"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+
+        <VerticalStackLayout x:Name="QuestionArea">
+
+            <Label x:Name="QuestionLabel"
+                   FontSize="40"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="AnswerEntry"
+                   Placeholder="Your answer..."
+                   FontSize="30"
+                   TextColor="Black"
+                   BackgroundColor="White"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <Button Text="Answer"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    HorizontalOptions="Center"
+                    Clicked="OnAnswerSubmitted" />
+
+            <Label x:Name="AnswerLabel"
+                   FontSize="20"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+
+        <Label x:Name="GameOverLabel"
+               FontSize="40"
+               TextColor="Black"
+               HorizontalOptions="Center" />
+
+        <Button x:Name="BackToMenuButton"
+                IsVisible="false"
+                Text="Back to menu"
+                FontSize="20"
+                TextColor="White"
+                BackgroundColor="DodgerBlue"
+                HorizontalOptions="Center"
+                Clicked="OnBackToMenu" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

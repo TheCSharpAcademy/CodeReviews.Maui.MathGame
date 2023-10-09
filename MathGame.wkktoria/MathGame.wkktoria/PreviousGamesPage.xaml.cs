@@ -1,11 +1,9 @@
 ﻿namespace MathGame.wkktoria;
 
-public partial class App
+public partial class PreviousGamesPage
 {
-    public App()
+    public PreviousGamesPage()
     {
         InitializeComponent();
-
-        MainPage = new AppShell();
     }
 }
