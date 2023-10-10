@@ -9,7 +9,7 @@
         HorizontalOptions="Center"
         VerticalOptions="Center">
 
-        <Label Text="| Date | Type | Difficulty | Score | Total | Delete"
+        <Label Text="| Date | Time | Type | Difficulty | Score | Total | Delete"
                FontSize="20"
                TextColor="Black"
                HorizontalOptions="Center" />
@@ -34,6 +34,7 @@
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="0"
@@ -42,26 +43,31 @@
                                        TextColor="Black" />
 
                                 <Label Grid.Column="1"
-                                       Text="{Binding Type}"
+                                       Text="{Binding Time}"
                                        FontSize="30"
                                        TextColor="Black" />
 
                                 <Label Grid.Column="2"
-                                       Text="{Binding Difficulty}"
+                                       Text="{Binding Type}"
                                        FontSize="30"
                                        TextColor="Black" />
 
                                 <Label Grid.Column="3"
-                                       Text="{Binding Score}"
+                                       Text="{Binding Difficulty}"
                                        FontSize="30"
                                        TextColor="Black" />
 
                                 <Label Grid.Column="4"
+                                       Text="{Binding Score}"
+                                       FontSize="30"
+                                       TextColor="Black" />
+
+                                <Label Grid.Column="5"
                                        Text="{Binding Total}"
                                        FontSize="30"
                                        TextColor="Black" />
 
-                                <Button Grid.Column="5"
+                                <Button Grid.Column="6"
                                         Text="X"
                                         FontSize="30"
                                         TextColor="White"

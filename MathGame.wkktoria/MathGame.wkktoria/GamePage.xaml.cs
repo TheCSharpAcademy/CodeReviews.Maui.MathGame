@@ -6,13 +6,16 @@ public partial class GamePage
 {
     private string _currentOperand;
     private DifficultyLevel _difficultyLevel = DifficultyLevel.NotSelected;
+    private DateTime _endTime;
     private int _firstNumber;
     private int _gamesLeft;
     private int _maxNumber;
     private int _minNumber;
     private int _score;
     private int _secondNumber;
+    private DateTime _startTime;
     private int _totalQuestions;
+    private double _totalTime;
 
     public GamePage(string gameType)
     {
@@ -80,6 +83,8 @@ public partial class GamePage
             _minNumber = 1;
             _maxNumber = 9;
         }
+
+        _startTime = DateTime.UtcNow;
 
         CreateNewQuestion();
     }
@@ -160,6 +165,9 @@ public partial class GamePage
 
     private void GameOver()
     {
+        _endTime = DateTime.UtcNow;
+        _totalTime = Math.Round((_endTime - _startTime).TotalSeconds, 2);
+
         var gameOperation = GameType switch
         {
             "Addition" => GameOperation.Addition,
@@ -173,7 +181,7 @@ public partial class GamePage
         QuestionArea.IsVisible = false;
         GameOverArea.IsVisible = true;
 
-        GameOverLabel.Text = $"Game over! Your got {_score} out of {_totalQuestions} right!";
+        GameOverLabel.Text = $"Your got {_score} out of {_totalQuestions} right in {_totalTime} seconds!";
 
         App.GameRepository.Add(new Game
         {
@@ -181,7 +189,8 @@ public partial class GamePage
             Difficulty = _difficultyLevel,
             Score = _score,
             Total = _totalQuestions,
-            DatePlayed = DateTime.UtcNow
+            DatePlayed = DateTime.UtcNow,
+            Time = _totalTime
         });
     }
 

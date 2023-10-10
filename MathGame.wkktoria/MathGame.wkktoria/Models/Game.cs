@@ -15,6 +15,7 @@ public class Game
     public int Score { get; set; }
     public int Total { get; set; }
     public DateTime DatePlayed { get; set; }
+    public double Time { get; set; }
 }
 
 public enum GameOperation
