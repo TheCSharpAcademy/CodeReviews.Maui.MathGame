@@ -4,7 +4,8 @@ namespace MathGame.wkktoria;
 
 public partial class GamePage
 {
-    private DifficultyLevel _difficultyLevel;
+    private string _currentOperand;
+    private DifficultyLevel _difficultyLevel = DifficultyLevel.NotSelected;
     private int _firstNumber;
     private int _gamesLeft;
     private int _maxNumber;
@@ -74,21 +75,44 @@ public partial class GamePage
         SelectionArea.IsVisible = false;
         QuestionArea.IsVisible = true;
 
+        if (_difficultyLevel == DifficultyLevel.NotSelected)
+        {
+            _minNumber = 1;
+            _maxNumber = 9;
+        }
+
         CreateNewQuestion();
     }
 
     private void CreateNewQuestion()
     {
-        var gameOperand = GameType switch
-        {
-            "Addition" => "+",
-            "Subtraction" => "-",
-            "Multiplication" => "*",
-            "Division" => "/",
-            _ => ""
-        };
-
         var random = new Random();
+
+        var gameOperand = string.Empty;
+
+        switch (GameType)
+        {
+            case "Addition":
+                gameOperand = "+";
+                break;
+            case "Subtraction":
+                gameOperand = "-";
+                break;
+            case "Multiplication":
+                gameOperand = "*";
+                break;
+            case "Division":
+                gameOperand = "/";
+                break;
+            case "Random":
+                const string operands = "+-*/";
+                var index = random.Next(0, operands.Length);
+                gameOperand = operands[index].ToString();
+                break;
+        }
+
+        _currentOperand = gameOperand;
+
 
         _firstNumber = random.Next(_minNumber, _maxNumber);
         _secondNumber = random.Next(_minNumber, _maxNumber);
@@ -107,12 +131,12 @@ public partial class GamePage
     {
         var answer = int.Parse(AnswerEntry.Text);
 
-        var isCorrect = GameType switch
+        var isCorrect = _currentOperand switch
         {
-            "Addition" => answer == _firstNumber + _secondNumber,
-            "Subtraction" => answer == _firstNumber - _secondNumber,
-            "Multiplication" => answer == _firstNumber * _secondNumber,
-            "Division" => answer == _firstNumber / _secondNumber,
+            "+" => answer == _firstNumber + _secondNumber,
+            "-" => answer == _firstNumber - _secondNumber,
+            "*" => answer == _firstNumber * _secondNumber,
+            "/" => answer == _firstNumber / _secondNumber,
             _ => false
         };
 
@@ -142,6 +166,7 @@ public partial class GamePage
             "Subtraction" => GameOperation.Subtraction,
             "Multiplication" => GameOperation.Multiplication,
             "Division" => GameOperation.Division,
+            "Random" => GameOperation.Random,
             _ => GameOperation.Undefined
         };
 

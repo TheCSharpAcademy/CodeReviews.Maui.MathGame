@@ -35,9 +35,11 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0"
+                <Button Grid.Row="0"
+                        Grid.Column="0"
                         Text="Addition"
                         FontSize="20"
                         TextColor="White"
@@ -68,9 +70,17 @@
                         BackgroundColor="RoyalBlue"
                         Clicked="OnGameChosen" />
 
+                <Button Grid.Row="0"
+                        Grid.Column="4"
+                        Text="Random"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        Clicked="OnGameChosen" />
+
                 <Button Grid.Row="1"
                         Grid.Column="0"
-                        Grid.ColumnSpan="4"
+                        Grid.ColumnSpan="5"
                         Text="View previous games"
                         FontSize="20"
                         TextColor="White"

@@ -23,6 +23,7 @@ public enum GameOperation
     Subtraction,
     Multiplication,
     Division,
+    Random,
     Undefined
 }
 
