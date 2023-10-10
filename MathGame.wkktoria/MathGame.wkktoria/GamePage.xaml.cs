@@ -5,10 +5,11 @@ namespace MathGame.wkktoria;
 public partial class GamePage
 {
     private const int TotalQuestions = 2;
-
+    private DifficultyLevel _difficultyLevel;
     private int _firstNumber;
     private int _gamesLeft = TotalQuestions;
-
+    private int _maxNumber;
+    private int _minNumber;
     private int _score;
     private int _secondNumber;
 
@@ -18,11 +19,43 @@ public partial class GamePage
 
         GameType = gameType;
         BindingContext = this;
-
-        CreateNewQuestion();
     }
 
     private string GameType { get; }
+
+    private void OnDifficultyLevelSelected(object sender, EventArgs e)
+    {
+        var button = (Button)sender;
+
+        switch (button.Text)
+        {
+            case "Easy":
+                _minNumber = 1;
+                _maxNumber = 9;
+                _difficultyLevel = DifficultyLevel.Easy;
+                break;
+            case "Medium":
+                _minNumber = 10;
+                _maxNumber = 49;
+                _difficultyLevel = DifficultyLevel.Medium;
+                break;
+            case "Hard":
+                _minNumber = 50;
+                _maxNumber = 99;
+                _difficultyLevel = DifficultyLevel.Hard;
+                break;
+            default:
+                _minNumber = 1;
+                _maxNumber = 9;
+                _difficultyLevel = DifficultyLevel.NotSelected;
+                break;
+        }
+
+        SelectionArea.IsVisible = false;
+        QuestionArea.IsVisible = true;
+
+        CreateNewQuestion();
+    }
 
     private void CreateNewQuestion()
     {
@@ -37,14 +70,14 @@ public partial class GamePage
 
         var random = new Random();
 
-        _firstNumber = GameType != "Division" ? random.Next(1, 9) : random.Next(1, 99);
-        _secondNumber = GameType != "Division" ? random.Next(1, 9) : random.Next(1, 99);
+        _firstNumber = random.Next(_minNumber, _maxNumber);
+        _secondNumber = random.Next(_minNumber, _maxNumber);
 
         if (GameType == "Division")
             while (_firstNumber < _secondNumber || _firstNumber % _secondNumber != 0)
             {
-                _firstNumber = random.Next(1, 99);
-                _secondNumber = random.Next(1, 99);
+                _firstNumber = random.Next(_minNumber, _maxNumber);
+                _secondNumber = random.Next(_minNumber, _maxNumber);
             }
 
         QuestionLabel.Text = $"{_firstNumber} {gameOperand} {_secondNumber}";
@@ -93,13 +126,14 @@ public partial class GamePage
         };
 
         QuestionArea.IsVisible = false;
-        BackToMenuButton.IsVisible = true;
+        GameOverArea.IsVisible = true;
 
         GameOverLabel.Text = $"Game over! Your got {_score} out of {TotalQuestions} right!";
 
         App.GameRepository.Add(new Game
         {
             Type = gameOperation,
+            Difficulty = _difficultyLevel,
             Score = _score,
             DatePlayed = DateTime.UtcNow
         });

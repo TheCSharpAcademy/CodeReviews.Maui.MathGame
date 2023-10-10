@@ -11,6 +11,7 @@ public class Game
     public int Id { get; set; }
 
     public GameOperation Type { get; set; }
+    public DifficultyLevel Difficulty { get; set; }
     public int Score { get; set; }
     public DateTime DatePlayed { get; set; }
 }
@@ -22,4 +23,12 @@ public enum GameOperation
     Multiplication,
     Division,
     Undefined
+}
+
+public enum DifficultyLevel
+{
+    Easy,
+    Medium,
+    Hard,
+    NotSelected
 }
