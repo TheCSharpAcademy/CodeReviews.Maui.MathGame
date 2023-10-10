@@ -5,59 +5,76 @@
              x:Class="MathGame.wkktoria.PreviousGamesPage"
              BackgroundImageSource="background.jpg">
 
-    <ScrollView>
-        <VerticalStackLayout Spacing="25"
-                             Padding="50"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center">
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
 
-            <CollectionView x:Name="GamesList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="35" />
-                            </Grid.RowDefinitions>
+        <Label Text="| Date | Type | Difficulty | Score | Total | Delete"
+               FontSize="20"
+               TextColor="Black"
+               HorizontalOptions="Center" />
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
+        <ScrollView>
+            <VerticalStackLayout>
+                <CollectionView x:Name="GamesList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10"
+                                  RowSpacing="10"
+                                  ColumnSpacing="10">
 
-                            <Label Grid.Column="0"
-                                   Text="{Binding DatePlayed}"
-                                   FontSize="30"
-                                   TextColor="Black" />
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
 
-                            <Label Grid.Column="1"
-                                   Text="{Binding Type}"
-                                   FontSize="30"
-                                   TextColor="Black" />
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="2"
-                                   Text="{Binding Difficulty}"
-                                   FontSize="30"
-                                   TextColor="Black" />
+                                <Label Grid.Column="0"
+                                       Text="{Binding DatePlayed}"
+                                       FontSize="30"
+                                       TextColor="Black" />
 
-                            <Label Grid.Column="3"
-                                   Text="{Binding Score}"
-                                   FontSize="30"
-                                   TextColor="Black" />
+                                <Label Grid.Column="1"
+                                       Text="{Binding Type}"
+                                       FontSize="30"
+                                       TextColor="Black" />
 
-                            <Button Grid.Column="4"
-                                    Text="Delete"
-                                    FontSize="30"
-                                    TextColor="White"
-                                    BackgroundColor="Firebrick"
-                                    BindingContext="{Binding Id}"
-                                    Clicked="OnDelete" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+                                <Label Grid.Column="2"
+                                       Text="{Binding Difficulty}"
+                                       FontSize="30"
+                                       TextColor="Black" />
+
+                                <Label Grid.Column="3"
+                                       Text="{Binding Score}"
+                                       FontSize="30"
+                                       TextColor="Black" />
+
+                                <Label Grid.Column="4"
+                                       Text="{Binding Total}"
+                                       FontSize="30"
+                                       TextColor="Black" />
+
+                                <Button Grid.Column="5"
+                                        Text="X"
+                                        FontSize="30"
+                                        TextColor="White"
+                                        BackgroundColor="Firebrick"
+                                        MinimumWidthRequest="50"
+                                        MaximumWidthRequest="50"
+                                        BindingContext="{Binding Id}"
+                                        Clicked="OnDelete" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
 </ContentPage>

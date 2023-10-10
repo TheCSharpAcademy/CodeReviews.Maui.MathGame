@@ -13,6 +13,7 @@ public class Game
     public GameOperation Type { get; set; }
     public DifficultyLevel Difficulty { get; set; }
     public int Score { get; set; }
+    public int Total { get; set; }
     public DateTime DatePlayed { get; set; }
 }
 
