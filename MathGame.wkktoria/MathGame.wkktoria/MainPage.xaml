@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGame.wkktoria.MainPage"
+             BackgroundImageSource="background.jpg">
+
+    <ContentView>
+
+        <VerticalStackLayout Spacing="25"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+            <Label Text="Math Game"
+                   FontSize="40"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Label Text="What would you like to play?"
+                   FontSize="30"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Grid ColumnSpacing="20"
+                  RowSpacing="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Addition"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        Clicked="OnGameChosen" />
+
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Text="Subtraction"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        Clicked="OnGameChosen" />
+
+                <Button Grid.Row="0"
+                        Grid.Column="2"
+                        Text="Multiplication"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        Clicked="OnGameChosen" />
+
+                <Button Grid.Row="0"
+                        Grid.Column="3"
+                        Text="Division"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        Clicked="OnGameChosen" />
+
+                <Button Grid.Row="0"
+                        Grid.Column="4"
+                        Text="Random"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        Clicked="OnGameChosen" />
+
+                <Button Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="5"
+                        Text="View previous games"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="MidnightBlue"
+                        Clicked="OnViewPreviousGamesChosen" />
+
+            </Grid>
+
+        </VerticalStackLayout>
+
+    </ContentView>
+
+</ContentPage>

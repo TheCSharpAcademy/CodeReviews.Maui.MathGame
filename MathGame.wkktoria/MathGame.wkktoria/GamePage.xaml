@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGame.wkktoria.GamePage"
+             BackgroundImageSource="background.jpg">
+
+    <VerticalStackLayout VerticalOptions="Center">
+
+        <VerticalStackLayout x:Name="SelectionArea"
+                             Spacing="25"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+            <Grid ColumnSpacing="10"
+                  RowSpacing="20"
+                  Padding="20">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Text="Choose difficulty"
+                       FontSize="30"
+                       TextColor="Black"
+                       HorizontalOptions="Center" />
+
+                <Button x:Name="EasyDifficultyButton"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Easy"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="LimeGreen"
+                        BorderColor="White"
+                        Clicked="OnDifficultyLevelSelected" />
+
+                <Button x:Name="MediumDifficultyButton"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Medium"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="Gold"
+                        BorderColor="White"
+                        Clicked="OnDifficultyLevelSelected" />
+
+                <Button x:Name="HardDifficultyButton"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Text="Hard"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="OrangeRed"
+                        BorderColor="White"
+                        Clicked="OnDifficultyLevelSelected" />
+
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Text="Number of questions"
+                       FontSize="30"
+                       TextColor="Black"
+                       HorizontalOptions="Center" />
+
+                <Slider
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    ThumbColor="White"
+                    Minimum="2"
+                    Maximum="10"
+                    Value="5"
+                    HorizontalOptions="Center"
+                    ValueChanged="OnSliderValueChanged" />
+
+                <Label x:Name="QuestionsNumberLabel"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Text="5"
+                       FontSize="20"
+                       TextColor="Black"
+                       HorizontalOptions="Center" />
+
+                <Button Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Text="Go to question"
+                        FontSize="20"
+                        TextColor="White"
+                        BackgroundColor="RoyalBlue"
+                        HorizontalOptions="Center"
+                        Clicked="OnGoToQuestions" />
+
+            </Grid>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="QuestionArea"
+                             Spacing="25"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             IsVisible="False">
+
+            <Label x:Name="QuestionLabel"
+                   FontSize="40"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="AnswerEntry"
+                   Placeholder="Your answer..."
+                   FontSize="30"
+                   TextColor="Black"
+                   BackgroundColor="White"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <Button Text="Answer"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    HorizontalOptions="Center"
+                    Clicked="OnAnswerSubmitted" />
+
+            <Label x:Name="AnswerLabel"
+                   FontSize="20"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="GameOverArea"
+                             Spacing="25"
+                             Padding="50"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             IsVisible="False">
+
+            <Label x:Name="GameOverLabel"
+                   FontSize="40"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Back to menu"
+                    FontSize="20"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    HorizontalOptions="Center"
+                    Clicked="OnBackToMenu" />
+
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
