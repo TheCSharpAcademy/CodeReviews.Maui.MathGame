@@ -7,7 +7,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
-    private void OnGameChosen(object sender, EventArgs e) // Vyvolá objekt, parametry třídy.
+    private void OnGameChosen(object sender, EventArgs e)
     { 
         Button button = (Button)sender;
 
