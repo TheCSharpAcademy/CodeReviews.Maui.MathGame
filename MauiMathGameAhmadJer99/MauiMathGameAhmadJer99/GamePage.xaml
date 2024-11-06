@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiMathGameAhmadJer99.GamePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="bg.jpg">
+    <VerticalStackLayout Padding="20,100,20,100" Spacing="20">
+        <VerticalStackLayout
+            x:Name="QuestionPhase"
+            IsVisible="True"
+            Spacing="20">
+            <Label
+                FontSize="100"
+                HorizontalOptions="Center"
+                Text="{Binding GameTitle}"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="QuestionLabel"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                FontSize="32"
+                HorizontalOptions="Center"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="UserEntry"
+                BackgroundColor="DarkRed"
+                FontSize="32"
+                HorizontalTextAlignment="Center"
+                MaximumHeightRequest="80"
+                Placeholder="Answer"
+                PlaceholderColor="FloralWhite"
+                TextColor="FloralWhite"
+                VerticalTextAlignment="Center"
+                WidthRequest="200" />
+            <Button
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                Clicked="OnAnswerSubmit"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Submit"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="AnswerFeedback"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                FontSize="22"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                MaximumWidthRequest="600"
+                Text="Correcto"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="TimerBox"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                FontSize="22"
+                HorizontalOptions="Center"
+                IsVisible="false"
+                MaximumWidthRequest="600"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            x:Name="ResultPhase"
+            IsVisible="false"
+            Spacing="20">
+            <Label
+                x:Name="ScoreResult"
+                FontSize="50"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="GameOverLabel"
+                BackgroundColor="Red"
+                BorderColor="DarkRed"
+                BorderWidth="2"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Game Over!"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Button
+                BackgroundColor="DarkRed"
+                BorderColor="DarkRed"
+                BorderWidth="2"
+                Clicked="OnBackToMenu"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Back to main menu"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+        <VerticalStackLayout
+            x:Name="SetQuestionsNumberPhase"
+            IsVisible="False"
+            Spacing="20">
+            <Button
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="How many questions do you want?"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+            <Entry
+                x:Name="QuestionsNumberEntry"
+                BackgroundColor="DarkRed"
+                FontSize="32"
+                HorizontalTextAlignment="Center"
+                MaximumHeightRequest="80"
+                Placeholder="2"
+                PlaceholderColor="FloralWhite"
+                TextColor="FloralWhite"
+                VerticalTextAlignment="Center"
+                WidthRequest="100" />
+            <Button
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                Clicked="OnSetQuestions"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Set"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="InvalidQuestionNumberEntry"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="2"
+                FontSize="22"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                MaximumWidthRequest="600"
+                Text="Correcto"
+                TextColor="FloralWhite"
+                VerticalOptions="Center" />
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>

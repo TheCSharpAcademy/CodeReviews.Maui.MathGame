@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiMathGameAhmadJer99.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="bg.jpg">
+    <VerticalStackLayout
+        x:Name="MainMenu"
+        Padding="100"
+        Spacing="25">
+        <Label
+            Padding="5"
+            BackgroundColor="Transparent"
+            FontSize="32"
+            HorizontalOptions="Center"
+            Text="Choose a game to play:"
+            TextColor="FloralWhite" />
+
+        <Grid
+            ColumnDefinitions="*,*,*,*"
+            ColumnSpacing="5"
+            RowDefinitions="*,*,*,*,*"
+            RowSpacing="15"
+            VerticalOptions="Center">
+
+            <Button
+                Grid.Column="0"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnGameChosen"
+                FontSize="32"
+                Text="+"
+                TextColor="FloralWhite" />
+            <Button
+                Grid.Column="1"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnGameChosen"
+                FontSize="32"
+                Text="-"
+                TextColor="FloralWhite" />
+            <Button
+                Grid.Column="2"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnGameChosen"
+                FontSize="22"
+                Text="x"
+                TextColor="FloralWhite" />
+            <Button
+                Grid.Column="3"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnGameChosen"
+                FontSize="32"
+                Text="/"
+                TextColor="FloralWhite" />
+
+            <Button
+                Grid.Row="1"
+                Grid.ColumnSpan="4"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnRandomizerChosen"
+                FontSize="17"
+                Text="Randomizer!"
+                TextColor="FloralWhite" />
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="4"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnDifficultyChosen"
+                FontSize="17"
+                Text="Difficulty"
+                TextColor="FloralWhite" />
+            <Button
+                Grid.Row="3"
+                Grid.ColumnSpan="4"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnPreviousGamesChosen"
+                FontSize="17"
+                Text="View Previous Games"
+                TextColor="FloralWhite" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
