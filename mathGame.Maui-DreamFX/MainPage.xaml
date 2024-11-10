@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mathGame.Maui.MainPage"
+             BackgroundImageSource="bg.jpg">
+    <ContentView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="50">
+
+            <Label
+                Text = "Matematické procvičování"
+                FontSize="50"
+                HorizontalOptions="Center"/>
+            <Label
+                Text = "Co chceš procvičovat?"
+                FontSize="50"
+                HorizontalOptions="Center"/>
+
+
+            <Grid RowDefinitions ="*,150"
+                    Grid.ColumnDefinitions="*,*,*,*">
+
+                <Button Grid.Column="0"
+                        Text="+"
+                        Clicked="OnGameChosen"
+                        MaximumWidthRequest="100"
+                        FontSize="60"/>
+                <Button Grid.Column="1"
+                        Text="-"
+                        Clicked="OnGameChosen"
+                        MaximumWidthRequest="100"
+                        FontSize="60"/>
+                <Button Grid.Column="2"
+                        Text="x"
+                        Clicked="OnGameChosen"
+                        MaximumWidthRequest="100"
+                        FontSize="60"/>
+                <Button Grid.Column="3"
+                        Text="/"
+                        MaximumWidthRequest="100"
+                        FontSize="60"
+                        Clicked="OnGameChosen"/>
+
+                <Button Grid.Row="1"
+                        Grid.ColumnSpan="4"
+                        BackgroundColor="Brown"
+                        Text="Výsledky předchozích cvičení"
+                        Clicked="OnViewPreviousScore"
+                        MaximumHeightRequest="70"
+                        FontSize="32"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ContentView>
+</ContentPage>
