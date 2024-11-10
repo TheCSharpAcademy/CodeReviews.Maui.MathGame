@@ -6,10 +6,8 @@
     xmlns:local="clr-namespace:mathGame.Maui"
     Shell.FlyoutBehavior="Disabled"
     Title="mathGame.Maui">
-
     <ShellContent
         Title=""
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
 </Shell>

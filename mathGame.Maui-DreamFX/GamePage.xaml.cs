@@ -1,5 +1,4 @@
 using mathGame.Maui.Models;
-using Windows.Media.AppBroadcasting;
 
 namespace mathGame.Maui;
 
@@ -24,25 +23,9 @@ public partial class GamePage : ContentPage
 	}
 
 	private void CreateNewQuestion()
-
 	{ 
-		// - Všechno ostatní muzu definovat _
-		
-
         var random = new Random();
 
-		//if (GameType != "Dìlení")
-		//{
-		//	firstNumber = random.Next(1, 9);
-		//	secondNumber = random.Next(1, 9);
-		//}
-		//else
-		//{
-		//    firstNumber = random.Next(1, 99);
-		//    secondNumber = random.Next(1, 99);
-		//}
-
-		// Zkrácená verze zápisu IF a ELSE, 1-9 pokud není dìlení, pokud je tak do 99.
 		firstNumber = GameType != "Dìlení" ? random.Next(1, 9) : random.Next(0, 99);
         secondNumber = GameType != "Dìlení" ? random.Next(1, 9) : random.Next(0, 99);
 
@@ -96,16 +79,14 @@ public partial class GamePage : ContentPage
 
     private void ProcessAnswer(bool isCorrect)
     {
-		 // isCorrect == true; ?? try., jako IF Statement.
 		
-			score = isCorrect ? score += 1 : score; //Pokud je spravne, + bod, pokud ne tak pouze pøevezme poèet bodu.
+			score = isCorrect ? score += 1 : score;
 
-			AnswerLabel.Text = isCorrect ? "Správnì!" : "Špatnì."; // Pokud je pravda (true) tak platí vlevo, pokud ne tak vpravo.
+			AnswerLabel.Text = isCorrect ? "Správnì!" : "Špatnì.";
     }
 
 	private void GameOver()
 	{
-		// GameOperation je již definován jako enumerace - typy herních typù v souboru Game.cs
 		GameOperation gameOperation = GameType switch
 		{
 		"+" => GameOperation.Sèítání,
@@ -119,8 +100,6 @@ public partial class GamePage : ContentPage
 
         GameOverLabel.Text = $"Cvièení skonèilo! Z této lekce jsi získal {score} bodù z celkových {totalQuestions}. To není špatné!";
 
-
-		//SQL - Add a game record to the database.
 		App.GameRepository.Add(new Game
 		{
 			DatePlayed = DateTime.Now,
@@ -135,6 +114,6 @@ public partial class GamePage : ContentPage
 		score = 0;
 		gamesLeft = totalQuestions;
 
-		Navigation.PushAsync(new MainPage()); // Návrat do Menu, lehce a jednoduše!
+		Navigation.PushAsync(new MainPage());
 	}
 }
