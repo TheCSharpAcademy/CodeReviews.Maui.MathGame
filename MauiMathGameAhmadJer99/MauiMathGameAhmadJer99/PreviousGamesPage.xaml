@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiMathGameAhmadJer99.PreviousGamesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="bg.jpg">
+    <ScrollView>
+        <VerticalStackLayout Padding="100" Spacing="10">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45" />
+                        <RowDefinition Height="10" />
+                        <!--  Added row for spacing  -->
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Grid.Column="0"
+                        Margin="0"
+                        BackgroundColor="DarkRed"
+                        BorderColor="IndianRed"
+                        BorderWidth="0.6"
+                        FontSize="18"
+                        Text="Date Played"
+                        TextColor="FloralWhite" />
+                    <Button
+                        Grid.Column="1"
+                        Margin="0"
+                        BackgroundColor="DarkRed"
+                        BorderColor="IndianRed"
+                        BorderWidth="0.5"
+                        FontSize="18"
+                        Text="Operation"
+                        TextColor="FloralWhite" />
+                    <Button
+                        Grid.Column="2"
+                        Margin="0"
+                        BackgroundColor="DarkRed"
+                        BorderColor="IndianRed"
+                        BorderWidth="0.5"
+                        FontSize="18"
+                        Text="Time Taken"
+                        TextColor="FloralWhite" />
+                    <Button
+                        Grid.Column="3"
+                        Margin="0"
+                        BackgroundColor="DarkRed"
+                        BorderColor="IndianRed"
+                        BorderWidth="0.5"
+                        FontSize="18"
+                        Text="Score"
+                        TextColor="FloralWhite" />
+                </Grid>
+            </VerticalStackLayout>
+
+            <CollectionView x:Name="gamesList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                                <RowDefinition Height="10" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button
+                                Grid.ColumnSpan="4"
+                                BackgroundColor="DarkRed"
+                                BorderColor="IndianRed"
+                                BorderWidth="1.2"
+                                Opacity="0.2" />
+                            <Button
+                                Grid.Column="0"
+                                Margin="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="IndianRed"
+                                BorderWidth="0.6"
+                                FontSize="18"
+                                Text="{Binding DatePlayed}"
+                                TextColor="FloralWhite" />
+                            <Button
+                                Grid.Column="1"
+                                Margin="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="IndianRed"
+                                BorderWidth="0.5"
+                                FontSize="18"
+                                Text="{Binding GameType}"
+                                TextColor="FloralWhite" />
+                            <Button
+                                Grid.Column="2"
+                                Margin="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="IndianRed"
+                                BorderWidth="0.5"
+                                FontSize="18"
+                                Text="{Binding GameTimeTaken}"
+                                TextColor="FloralWhite" />
+                            <Button
+                                Grid.Column="3"
+                                Margin="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="IndianRed"
+                                BorderWidth="0.5"
+                                FontSize="18"
+                                Text="{Binding Score}"
+                                TextColor="FloralWhite" />
+                            <Button
+                                Grid.Column="4"
+                                Margin="5,0,0,0"
+                                BackgroundColor="DarkRed"
+                                BindingContext="{Binding Id}"
+                                BorderColor="IndianRed"
+                                BorderWidth="0.5"
+                                Clicked="OnDelete"
+                                FontSize="18"
+                                Text="Delete"
+                                TextColor="FloralWhite" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

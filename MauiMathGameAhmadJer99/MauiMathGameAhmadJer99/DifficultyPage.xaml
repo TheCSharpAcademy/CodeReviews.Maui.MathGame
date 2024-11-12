@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiMathGameAhmadJer99.DifficultyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="bg.jpg">
+    <VerticalStackLayout
+        Padding="400,100,400,100"
+        IsVisible="True"
+        Spacing="50">
+        <Label
+            Padding="5"
+            BackgroundColor="Transparent"
+            FontSize="32"
+            HorizontalOptions="Center"
+            Text="Choose Difficulty"
+            TextColor="FloralWhite" />
+
+        <Grid
+            ColumnDefinitions="*"
+            ColumnSpacing="5"
+            RowDefinitions="*,*,*,*"
+            RowSpacing="15"
+            VerticalOptions="Center">
+
+
+            <Button
+                x:Name="EasyButton"
+                Grid.Row="0"
+                Grid.ColumnSpan="4"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="ForestGreen"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnDifficultyChosen"
+                FontSize="26"
+                Text="Easy"
+                TextColor="FloralWhite" />
+            <Button
+                x:Name="MediumButton"
+                Grid.Row="1"
+                Grid.ColumnSpan="4"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnDifficultyChosen"
+                FontSize="26"
+                Text="Medium"
+                TextColor="FloralWhite" />
+            <Button
+                x:Name="HardButton"
+                Grid.Row="2"
+                Grid.ColumnSpan="4"
+                Margin="20"
+                Padding="5"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnDifficultyChosen"
+                FontSize="26"
+                Text="Hard"
+                TextColor="FloralWhite" />
+            <Button
+                Grid.Row="3"
+                Grid.ColumnSpan="4"
+                Margin="20"
+                Padding="15"
+                BackgroundColor="DarkRed"
+                BorderColor="IndianRed"
+                BorderWidth="0.5"
+                Clicked="OnBackToMenu"
+                FontSize="28"
+                Text="Back"
+                TextColor="FloralWhite" />
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
